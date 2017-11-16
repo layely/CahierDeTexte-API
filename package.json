@@ -1,0 +1,21 @@
+{
+  "name": "cahierdetexte",
+  "version": "1.0.0",
+  "description": "api for an android app",
+  "main": "server.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "'not set yet'"
+  },
+  "keywords": [
+    "cahier_de_texte",
+    "cahierDeTexte",
+    "api",
+    "restful"
+  ],
+  "author": "layely",
+  "license": "ISC"
+}
