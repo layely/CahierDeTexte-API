@@ -10,7 +10,8 @@ var mongoose = require('mongoose');
 var db = require('./config/db');
 
 //Load created models
-var Task = require('./api/models/MatiereModel');
+var Matiere = require('./api/models/MatiereModel');
+var Etudiant = require('./api/models/EtudiantModel');
 
 //Create a connection
 mongoose.Promise = global.Promise;
@@ -19,10 +20,17 @@ mongoose.connect(db.url);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//add middlewares
+const middlewares = require('./api/midllewares/');
+app.use(middlewares);
+
 //importing routes
 var matiereRoutes = require('./api/routes/MatiereRoutes');
+var etudiantRoutes = require('./api/routes/EtudiantRoutes');
 
+//add routes
 matiereRoutes(app);
+etudiantRoutes(app);
 
 app.listen(port);
 

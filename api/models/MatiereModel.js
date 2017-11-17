@@ -8,5 +8,3 @@ var matiereSchema = new Schema({
 });
 
 module.exports = mongoose.model('Matiere', matiereSchema);
-
-

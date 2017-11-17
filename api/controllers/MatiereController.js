@@ -5,11 +5,11 @@ var mongoose = require('mongoose'),
 exports.listAllMatieres = function (req, res) {
     const queryConditions = {};
 
-    Matiere.find(queryConditions, function (err, matiere) {
+    Matiere.find(queryConditions, function (err, matieres) {
         if (err) {
             res.send(err);
         }
-        res.json(matiere);
+        res.json(matieres);
     });
 };
 
@@ -44,12 +44,8 @@ exports.modifyMatiere = function (req, res) {
         nom: req.params.nom,
     };
 
-    const queryOptions = {
-        new: true
-    };
-
     const modifiedMatiere = req.body;
-    Matiere.update(queryConditions, req.body, function (err, result) {
+    Matiere.update(queryConditions, modifiedMatiere, function (err, result) {
         if (err) {
             res.send(err);
         }
