@@ -6,7 +6,7 @@
 module.exports = function (req) {
     if (!req.body.id || req.body.id == '0') {
         const id = Date.now();
-        console.log('generated id: ', id);
+        // console.log('generated id: ', id);
         req.body.id = id;
     }
 };

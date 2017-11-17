@@ -1,51 +1,49 @@
 'use strict';
 var mongoose = require('mongoose'),
-    Matiere = mongoose.model('Matiere');
+    UniteEnseignement = mongoose.model('UniteEnseignement');
 
 exports.listAll = function (req, res) {
     const queryConditions = {};
 
-    Matiere.find(queryConditions, function (err, matieres) {
+    UniteEnseignement.find(queryConditions, function (err, uniteEnseignements) {
         if (err) {
             res.send(err);
         }
-        res.json(matieres);
+        res.json(uniteEnseignements);
     });
 };
 
 exports.addOne = function (req, res) {
-    var newMatiere = new Matiere(req.body);
+    var newUniteEnseignement = new UniteEnseignement(req.body);
 
-    newMatiere.save(function (err, matiere) {
+    newUniteEnseignement.save(function (err, uniteEnseignement) {
         if (err) {
             res.send(err);
         }
-        res.json(matiere);
+        res.json(uniteEnseignement);
     });
 };
 
 exports.getOne = function (req, res) {
-    // var query = Matiere.where({ nom: req.params.nom });
-    // query.findOne(function (err, matiere) {
     const queryConditions = {
-        nom: req.params.nom
+        id: req.params.id
     };
 
-    Matiere.findOne(queryConditions, function (err, matiere) {
+    UniteEnseignement.findOne(queryConditions, function (err, uniteEnseignement) {
         if (err) {
             res.send(err);
         }
-        res.json(matiere);
+        res.json(uniteEnseignement);
     });
 };
 
 exports.modifyOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom,
+        id: req.params.id,
     };
 
     const modified = req.body;
-    Matiere.update(queryConditions, modified, function (err, result) {
+    UniteEnseignement.update(queryConditions, modified, function (err, result) {
         if (err) {
             res.send(err);
         }
@@ -55,10 +53,10 @@ exports.modifyOne = function (req, res) {
 
 exports.deleteOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom
+        id: req.params.id
     };
 
-    Matiere.remove(queryConditions, function (err, result) {
+    UniteEnseignement.remove(queryConditions, function (err, result) {
         if (err) {
             res.end(err);
         }

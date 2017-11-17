@@ -7,13 +7,13 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 //Load database configuration
-var db = require('./config/db');
+const db = require('./config/db');
 
 //Load created models
-var Matiere = require('./api/models/MatiereModel');
-var Etudiant = require('./api/models/EtudiantModel');
+const loadModels = require('./api/helpers/loadModels');
+loadModels();
 
-//Create a connection
+//Create a database connection 
 mongoose.Promise = global.Promise;
 mongoose.connect(db.url);
 
@@ -24,13 +24,9 @@ app.use(bodyParser.json());
 const middlewares = require('./api/midllewares/');
 app.use(middlewares);
 
-//importing routes
-var matiereRoutes = require('./api/routes/MatiereRoutes');
-var etudiantRoutes = require('./api/routes/EtudiantRoutes');
-
 //add routes
-matiereRoutes(app);
-etudiantRoutes(app);
+const importAndLoadRoutes = require('./api/helpers/setUpRoutes');
+importAndLoadRoutes(app);
 
 app.listen(port);
 

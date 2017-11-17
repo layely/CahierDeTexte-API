@@ -2,9 +2,7 @@
 var mongoose = require('mongoose'),
     Etudiant = mongoose.model('Etudiant');
 
-var shortid = require('shortid');
-
-exports.listAllEtudiants = function (req, res) {
+exports.listAll = function (req, res) {
     const queryConditions = {};
 
     Etudiant.find(queryConditions, function (err, etudiants) {
@@ -15,7 +13,7 @@ exports.listAllEtudiants = function (req, res) {
     });
 };
 
-exports.addEtudiant = function (req, res) {
+exports.addOne = function (req, res) {
     var newEtudiant = new Etudiant(req.body);
 
     newEtudiant.save(function (err, etudiant) {
@@ -26,7 +24,7 @@ exports.addEtudiant = function (req, res) {
     });
 };
 
-exports.getEtudiant = function (req, res) {
+exports.getOne = function (req, res) {
     const queryConditions = {
         id: req.params.id
     };
@@ -39,13 +37,13 @@ exports.getEtudiant = function (req, res) {
     });
 };
 
-exports.modifyEtudiant = function (req, res) {
+exports.modifyOne = function (req, res) {
     const queryConditions = {
         id: req.params.id,
     };
 
-    const modifiedEtudiant = req.body;
-    Etudiant.update(queryConditions, modifiedEtudiant, function (err, result) {
+    const modified = req.body;
+    Etudiant.update(queryConditions, modified, function (err, result) {
         if (err) {
             res.send(err);
         }
@@ -53,7 +51,7 @@ exports.modifyEtudiant = function (req, res) {
     });
 };
 
-exports.deleteEtudiant = function (req, res) {
+exports.deleteOne = function (req, res) {
     const queryConditions = {
         id: req.params.id
     };

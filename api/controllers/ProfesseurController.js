@@ -1,51 +1,49 @@
 'use strict';
 var mongoose = require('mongoose'),
-    Matiere = mongoose.model('Matiere');
+    Professeur = mongoose.model('Professeur');
 
 exports.listAll = function (req, res) {
     const queryConditions = {};
 
-    Matiere.find(queryConditions, function (err, matieres) {
+    Professeur.find(queryConditions, function (err, professeurs) {
         if (err) {
             res.send(err);
         }
-        res.json(matieres);
+        res.json(professeurs);
     });
 };
 
 exports.addOne = function (req, res) {
-    var newMatiere = new Matiere(req.body);
+    var newProfesseur = new Professeur(req.body);
 
-    newMatiere.save(function (err, matiere) {
+    newProfesseur.save(function (err, professeur) {
         if (err) {
             res.send(err);
         }
-        res.json(matiere);
+        res.json(professeur);
     });
 };
 
 exports.getOne = function (req, res) {
-    // var query = Matiere.where({ nom: req.params.nom });
-    // query.findOne(function (err, matiere) {
     const queryConditions = {
-        nom: req.params.nom
+        id: req.params.id
     };
 
-    Matiere.findOne(queryConditions, function (err, matiere) {
+    Professeur.findOne(queryConditions, function (err, professeur) {
         if (err) {
             res.send(err);
         }
-        res.json(matiere);
+        res.json(professeur);
     });
 };
 
 exports.modifyOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom,
+        id: req.params.id,
     };
 
     const modified = req.body;
-    Matiere.update(queryConditions, modified, function (err, result) {
+    Professeur.update(queryConditions, modified, function (err, result) {
         if (err) {
             res.send(err);
         }
@@ -55,10 +53,10 @@ exports.modifyOne = function (req, res) {
 
 exports.deleteOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom
+        id: req.params.id
     };
 
-    Matiere.remove(queryConditions, function (err, result) {
+    Professeur.remove(queryConditions, function (err, result) {
         if (err) {
             res.end(err);
         }
