@@ -10,4 +10,4 @@ module.exports = function (app) {
         .get(matiereController.getMatiere)
         .put(matiereController.modifyMatiere)
         .delete(matiereController.deleteMatiere);
-}
+};

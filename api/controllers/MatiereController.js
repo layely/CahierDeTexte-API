@@ -11,7 +11,7 @@ exports.listAllMatieres = function (req, res) {
         }
         res.json(matiere);
     });
-}
+};
 
 exports.addMatiere = function (req, res) {
     var newMatiere = new Matiere(req.body);
@@ -22,7 +22,7 @@ exports.addMatiere = function (req, res) {
         }
         res.json(matiere);
     });
-}
+};
 
 exports.getMatiere = function (req, res) {
     // var query = Matiere.where({ nom: req.params.nom });
@@ -37,7 +37,7 @@ exports.getMatiere = function (req, res) {
         }
         res.json(matiere);
     });
-}
+};
 
 exports.modifyMatiere = function (req, res) {
     const queryConditions = {
@@ -55,7 +55,7 @@ exports.modifyMatiere = function (req, res) {
         }
         res.json(result);
     });
-}
+};
 
 exports.deleteMatiere = function (req, res) {
     const queryConditions = {
@@ -68,4 +68,4 @@ exports.deleteMatiere = function (req, res) {
         }
         res.json(result);
     });
-}
+};
