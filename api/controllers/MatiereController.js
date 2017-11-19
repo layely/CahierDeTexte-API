@@ -25,10 +25,10 @@ exports.addOne = function (req, res) {
 };
 
 exports.getOne = function (req, res) {
-    // var query = Matiere.where({ nom: req.params.nom });
+    // var query = Matiere.where({ _id: req.params._id });
     // query.findOne(function (err, matiere) {
     const queryConditions = {
-        nom: req.params.nom
+        _id: req.params._id
     };
 
     Matiere.findOne(queryConditions, function (err, matiere) {
@@ -41,7 +41,7 @@ exports.getOne = function (req, res) {
 
 exports.modifyOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom,
+        _id: req.params._id,
     };
 
     const modified = req.body;
@@ -55,7 +55,7 @@ exports.modifyOne = function (req, res) {
 
 exports.deleteOne = function (req, res) {
     const queryConditions = {
-        nom: req.params.nom
+        _id: req.params._id
     };
 
     Matiere.remove(queryConditions, function (err, result) {

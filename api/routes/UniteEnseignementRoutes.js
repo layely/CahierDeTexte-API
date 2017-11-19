@@ -6,7 +6,7 @@ module.exports = function (app) {
     .get(uniteEnseignementController.listAll)
     .post(uniteEnseignementController.addOne);
 
-app.route('/unite_enseignements/:id')
+app.route('/unite_enseignements/:_id')
     .get(uniteEnseignementController.getOne)
     .put(uniteEnseignementController.modifyOne)
     .delete(uniteEnseignementController.deleteOne);

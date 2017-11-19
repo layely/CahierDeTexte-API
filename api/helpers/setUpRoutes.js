@@ -2,12 +2,16 @@
 
 module.exports = function (app) {
     //importing routes
-    var matiereRoutes = require('./../routes/MatiereRoutes');
-    var etudiantRoutes = require('./../routes/EtudiantRoutes');
-    var uniteEnseignementRoutes = require('./../routes/UniteEnseignementRoutes');
+    const matiereRoutes = require('./../routes/MatiereRoutes');
+    const etudiantRoutes = require('./../routes/EtudiantRoutes');
+    const uniteEnseignementRoutes = require('./../routes/UniteEnseignementRoutes');
+    const professeurRoutes = require('./../routes/ProfeseurRoutes');
+    const coursRoutes = require('./../routes/CoursRoutes');
 
     //add routes
     matiereRoutes(app);
     etudiantRoutes(app);
     uniteEnseignementRoutes(app);
+    professeurRoutes(app);
+    coursRoutes(app);
 };

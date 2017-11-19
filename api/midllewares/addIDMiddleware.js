@@ -4,9 +4,9 @@
     (method == Post) à la base de données.
  */
 module.exports = function (req) {
-    if (!req.body.id || req.body.id == '0') {
+    if (!req.body._id || req.body._id == '0') {
         const id = Date.now();
-        // console.log('generated id: ', id);
-        req.body.id = id;
+        // console.log('generated _id: ', _id);
+        req.body._id = id;
     }
 };

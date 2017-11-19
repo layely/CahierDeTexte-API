@@ -6,7 +6,7 @@ module.exports = function (app) {
         .get(etudiantController.listAll)
         .post(etudiantController.addOne);
 
-    app.route('/etudiants/:id')
+    app.route('/etudiants/:_id')
         .get(etudiantController.getOne)
         .put(etudiantController.modifyOne)
         .delete(etudiantController.deleteOne);

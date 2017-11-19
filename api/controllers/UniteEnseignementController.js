@@ -26,7 +26,7 @@ exports.addOne = function (req, res) {
 
 exports.getOne = function (req, res) {
     const queryConditions = {
-        id: req.params.id
+        _id: req.params._id
     };
 
     UniteEnseignement.findOne(queryConditions, function (err, uniteEnseignement) {
@@ -39,7 +39,7 @@ exports.getOne = function (req, res) {
 
 exports.modifyOne = function (req, res) {
     const queryConditions = {
-        id: req.params.id,
+        _id: req.params._id,
     };
 
     const modified = req.body;
@@ -53,7 +53,7 @@ exports.modifyOne = function (req, res) {
 
 exports.deleteOne = function (req, res) {
     const queryConditions = {
-        id: req.params.id
+        _id: req.params._id
     };
 
     UniteEnseignement.remove(queryConditions, function (err, result) {

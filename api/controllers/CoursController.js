@@ -1,26 +1,26 @@
 'use strict';
 var mongoose = require('mongoose'),
-    Etudiant = mongoose.model('Etudiant');
+    Cours = mongoose.model('Cours');
 
 exports.listAll = function (req, res) {
     const queryConditions = {};
 
-    Etudiant.find(queryConditions, function (err, etudiants) {
+    Cours.find(queryConditions, function (err, cours) {
         if (err) {
             res.send(err);
         }
-        res.json(etudiants);
+        res.json(cours);
     });
 };
 
 exports.addOne = function (req, res) {
-    var newEtudiant = new Etudiant(req.body);
+    var newCours = new Cours(req.body);
 
-    newEtudiant.save(function (err, etudiant) {
+    newCours.save(function (err, cours) {
         if (err) {
             res.send(err);
         }
-        res.json(etudiant);
+        res.json(cours);
     });
 };
 
@@ -29,11 +29,11 @@ exports.getOne = function (req, res) {
         _id: req.params._id
     };
 
-    Etudiant.findOne(queryConditions, function (err, etudiant) {
+    Cours.findOne(queryConditions, function (err, cours) {
         if (err) {
             res.send(err);
         }
-        res.json(etudiant);
+        res.json(cours);
     });
 };
 
@@ -43,7 +43,7 @@ exports.modifyOne = function (req, res) {
     };
 
     const modified = req.body;
-    Etudiant.update(queryConditions, modified, function (err, result) {
+    Cours.update(queryConditions, modified, function (err, result) {
         if (err) {
             res.send(err);
         }
@@ -56,7 +56,7 @@ exports.deleteOne = function (req, res) {
         _id: req.params._id
     };
 
-    Etudiant.remove(queryConditions, function (err, result) {
+    Cours.remove(queryConditions, function (err, result) {
         if (err) {
             res.end(err);
         }

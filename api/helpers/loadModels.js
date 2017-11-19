@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = function () {
-    var Matiere = require('./../models/MatiereModel');
-    var Etudiant = require('./../models/EtudiantModel');
-    var UniteEnseignement = require('./../models/UniteEnseignementModel');
+    const Matiere = require('./../models/MatiereModel');
+    const Etudiant = require('./../models/EtudiantModel');
+    const UniteEnseignement = require('./../models/UniteEnseignementModel');
+    const Professeur = require('./../models/ProfesseurModel');
+    const Cours = require('./../models/CoursModel');
 };

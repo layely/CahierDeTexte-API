@@ -6,7 +6,7 @@ module.exports = function (app) {
         .get(matiereController.listAll)
         .post(matiereController.addOne);
 
-    app.route('/matieres/:nom')
+    app.route('/matieres/:_id')
         .get(matiereController.getOne)
         .put(matiereController.modifyOne)
         .delete(matiereController.deleteOne);

@@ -5,6 +5,7 @@ var express = require('express'),
 
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+mongoose.set('debug', 'true');
 
 //Load database configuration
 const db = require('./config/db');
